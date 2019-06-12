@@ -1,0 +1,20 @@
+#include <iostream>
+
+
+int main() {
+	unsigned int number;
+	std::cin >> number;
+	std::cout << "Sum of number "<< number<<"===\t";
+	long double sum = 0;
+	int count = 0;
+	for (; number != 0;) {
+		sum += number % 10;
+		number /= 10;
+		count++;
+	}
+	std::cout << sum <<"\n";
+	std::cout << "Arithmetic average ===\t";
+	auto mult = sum / count;
+	std::cout << mult;
+	return 0;
+}
