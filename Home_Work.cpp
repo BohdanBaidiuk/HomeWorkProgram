@@ -31,5 +31,5 @@ int main(){
 	  else {
 	    std::cout << "Since the discriminant is less than zero, the equation has no real solutions.\n";
 	  }
-  }
+  	}
 }
