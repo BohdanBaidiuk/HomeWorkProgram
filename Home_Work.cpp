@@ -2,16 +2,13 @@
 #include <cmath> 
 
 int main(){
-	short  a,b,c;
+	int  a,b,c;
 	std::cout << "Please enter number = a,b,c- in the range = from -32767 to 32767. To solve the square equation\n";
-	short maxA= std::numeric_limits<short>::max();
-	short minA= std::numeric_limits<short>::min();
-	short maxB= std::numeric_limits<short>::max();
-	short minB= std::numeric_limits<short>::min();
-	short maxC= std::numeric_limits<short>::max();
-	short minC= std::numeric_limits<short>::min();
+	short max= std::numeric_limits<short>::max();
+	short min= std::numeric_limits<short>::min();
+	
 	std::cin >> a>>b>>c;
-	if (a > minA && a < maxA && b > minB && b < maxB && c > minC && c < maxC) {
+	if (a >= min && a <= max && b >= min && b <= max && c >= min && c <= max) {
 	  const unsigned int NUMBER_FOUR = 4;
 	  const unsigned int NUMBER_TWO = 2;
 	  const auto COUNT2A = NUMBER_TWO * a;
@@ -32,4 +29,7 @@ int main(){
 	    std::cout << "Since the discriminant is less than zero, the equation has no real solutions.\n";
 	  }
   	}
+	else {
+		std::cout << "non-range number";
+	}
 }
