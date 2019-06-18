@@ -3,10 +3,10 @@
 #include <limits>
 
 int main(){
-	int  a,b,c;
+	long long  a,b,c;
 	std::cout << "Please enter number = a,b,c- in the range = from -32767 to 32767. To solve the square equation\n";
-	short max= std::numeric_limits<short>::max();
-	short min= std::numeric_limits<short>::min();
+	int max= std::numeric_limits<short>::max();
+	int min= std::numeric_limits<short>::min();
 	
 	std::cin >> a>>b>>c;
 	if (a >= min && a <= max && b >= min && b <= max && c >= min && c <= max) {
