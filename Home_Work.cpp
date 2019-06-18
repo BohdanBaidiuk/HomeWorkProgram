@@ -9,12 +9,12 @@ int main(){
 	
 	std::cin >> a>>b>>c;
 	if (a >= min && a <= max && b >= min && b <= max && c >= min && c <= max) {
-	  const unsigned int NUMBER_FOUR = 4;
-	  const unsigned int NUMBER_TWO = 2;
-	  const auto COUNT2A = NUMBER_TWO * a;
+	  const unsigned NUMBER_FOUR = 4;
+	  const unsigned NUMBER_TWO = 2;
+	  auto COUNT2A = NUMBER_TWO * a;
 	  auto  D = std::pow(b, 2) - NUMBER_FOUR * a * c;
 	  if (D > 0) {
-	    std::cout << "Since the discriminant is greater than zero, the quadratic equation has two real roots:/n";
+	    std::cout << "Since the discriminant is greater than zero, the quadratic equation has two real roots:\n";
 	    auto  desk = std::sqrt(D);
 	    auto  x1 = (-b - desk) / (COUNT2A);
 	    auto  x2 = (-b + desk) / (COUNT2A);
