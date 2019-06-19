@@ -30,7 +30,5 @@ int main(){
 	    std::cout << "Since the discriminant is less than zero, the equation has no real solutions.\n";
 	  }
   	}
-	else {
-		std::cout << "non-range number";
-	}
+	
 }
