@@ -1,0 +1,26 @@
+#include <iostream>
+#include <limits>
+
+int main() {
+
+	long long num;
+	long long max = std::numeric_limits<long>::max();
+	long long min = std::numeric_limits<long>::min();
+	std::cout << "Enter number from "<< min <<" to "<< max <<"\n";
+	std::cin >> num;
+	long rev = 0;
+	long count;
+	if (num >= min && num <= max) {
+		while (num != 0)
+		{
+			count = num % 10;
+			rev = rev * 10 + count;
+			num = num / 10;
+		}
+		std::cout << "Reverse = " << rev << "\n";
+	}
+	else {
+		std::cout << "Eror";
+	}
+	return 0;
+}
