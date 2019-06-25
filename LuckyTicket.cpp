@@ -2,33 +2,28 @@
 
 int main()
 {
-	unsigned short number;
-
-	std::cout << "Input 6 - number\n\n";
-	unsigned short max = 9;
-	unsigned short min = 0;
-	unsigned sumFirst = 0;
-	unsigned sumSecond = 0;
-	const unsigned short CYCLE = 3;
-	for (int i = 0; i < CYCLE; i++) {
-			std::cin >> number;
-			if (number >= min && number <= max) {
-				sumFirst += number;
-			}
-			
-		}
-		for (int i = 0; i < CYCLE; i++){
-			std::cin >> number;
-			if (number >= min && number <= max) {
-				sumSecond += number;
-			}
-		}
-		if (sumFirst == sumSecond) {
-			std::cout << "Your ticket is lucky\n";
-		}
-		else {
-			std::cout << "It's not your lucky day\n";
-		}
-	
+  const unsigned int MAX = 999999;
+  const unsigned int MIN = 100000;
+  std::cout << "To check your ticket Input 6 - number from "<< MIN <<" to "<< MAX <<"\n\n";
+  unsigned int number;
+  const unsigned short CYCLE = 3;
+  std::cin >> number;
+  unsigned num = number;
+  if (number >= MIN && number <= MAX) {
+    unsigned comparingNumA = 0;
+    unsigned comparingNumB = 0;
+    for (int i = 0; i < CYCLE; i++) {
+      comparingNumA += number % 10;
+      number /= 10;
+    }
+    for (int i = 0; i < CYCLE; i++) {
+      comparingNumB += number % 10;
+      number /= 10;
+    }
+    comparingNumA == comparingNumB ? std::cout <<"You input = " << num << " Your ticket is lucky\n" : std::cout << "You input = " << num << " It's not your lucky day\n";
+  }
+  else {
+    std::cout << "Number not a range from " << MIN << " to " << MAX;
+  }
 	return 0;
 }
