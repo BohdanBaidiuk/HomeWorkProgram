@@ -18,12 +18,7 @@ int main() {
     std::cin >> bit;
     if (bit >= BITMIN && bit <= BITMAX) {
       bitOne <<= (bit - 1);
-      if ((number & bitOne) == bitOne) {
-        std::cout << "yes\n";
-      }
-      else {
-        std::cout << "no\n";
-      }
+	    (number & bitOne) == bitOne ? std::cout <<"yes\n" : std::cout <<"no\n";
     }
     else {
       std::cout << "Bit should be from "<< BITMIN <<" to "<< BITMAX;
