@@ -1,32 +1,34 @@
 #include <iostream>
 
 int main() {
-	short number;
-	unsigned short minSize = 1;
-	unsigned short maxSize = 50;
-	std::cout << "Enter the number of input elements from "<< minSize <<" to "<< maxSize <<"\n";
-	unsigned short size;
-	long int sum = 0;
-	std::cin >> size;
-	if (size >= minSize && size <= maxSize);
 
-	else {
-		std::cout << "Range should beat from " << minSize << " to " << maxSize << "\n";
-	}
-	short minRange = -60;
-	short maxRange = 90;
-	std::cout << "Enter numbers from "<< minRange <<" to "<< maxRange <<"\n";
-		for (int i = 0; i < size; i++) {
-			std::cin >> number;
-			if (number >= minRange && number <= maxRange) {
-					if (number % 2 != 0) {
-						sum += number;
-					}
-			}
-			else {
-				std::cout << "Range of numbers should beat from " << minRange << " to " << maxRange << "\n";
-			}
-		}
-	std::cout << "Sum of odd numbers = " << sum;
-	return 0;
+  const unsigned short MINSIZE = 1;
+  const unsigned short MAXSIZE = 50;
+  std::cout << "Enter the number of input elements from "<< MINSIZE <<" to "<< MAXSIZE <<"\n";
+  unsigned short size;
+  std::cin >> size;
+  if (size >= MINSIZE && size <= MAXSIZE) {
+    long sum = 0;
+    const short MINRANGE = -60;
+    const short MAXRENGE = 90;
+    std::cout << "Enter numbers from " << MINRANGE << " to " << MAXRENGE << "\n";
+    for (int i = 0; i < size;++i) {
+      long long  number;
+      std::cin >> number;
+      if (number >= MINRANGE && number <= MAXRENGE) {
+        if (number % 2 != 0) {
+          sum += number;
+        }
+      }
+      else {
+        size++;
+        std::cout << "Range of numbers should beat from " << MINRANGE << " to " << MAXRENGE << "\n";
+      }
+    }
+      std::cout << "Sum of odd numbers = " << sum;
+  }
+  else {
+    std::cout << "Range should beat from " << MINSIZE << " to " << MAXSIZE << "\n";
+  }
+  return 0;
 }
