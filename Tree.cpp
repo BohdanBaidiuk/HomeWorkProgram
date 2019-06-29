@@ -1,32 +1,33 @@
 #include <iostream>
 
-void main() {
-  unsigned short max = 40;
-  unsigned short min = 3;
-  std::cout << "Please enter number from "<< min <<" to "<< max <<"\n";
-  unsigned short star;
-  std::cin >> star;
-  if (star >= min && star <= max) {
-    int  inHalf = star / 2;
-    int first = inHalf;
-    unsigned  second = inHalf;
-    while (star > 0) {
-      for (int i = 0; i <= first; ++i) {
-	      std::cout << ' ';
-	    }
-	    for (int i = first; i <= second; ++i) {
-	      std::cout << '*';
-	    }
-	    for (int i = second; i <= star; ++i) {
-	      std::cout << ' ';
-	    }
-	    first--;
-	    second++;
-	    star--;
-	    std::cout << '\n';
+int main() {
+  const unsigned short MAX = 40;
+  const unsigned short MIN = 3;
+  std::cout << "Program for drawing Tree \n"
+  "please enter number from "<< MIN <<" to "<< MAX <<"\n";
+  unsigned short count;
+  std::cin >> count;
+  if (count >= MIN && count <= MAX) {
+    unsigned short inHalf = count / 2;
+    short start = inHalf;
+    unsigned short end = inHalf;
+    while (start >= 0) {
+      for (int i = 0; i < start; ++i) {
+        std::cout << ' ';
+      }
+      for (int i = start; i <= end; ++i) {
+        std::cout << '*';
+      }
+      for (int i = end; i < count; ++i) {
+        std::cout << ' ';
+      }
+      --start;
+      ++end;
+      std::cout << '\n';
     }
   }
   else {
-    std::cout << "Not range";
+    std::cout << "Range from "<< min <<" to "<< MAX;
   }
+	return 0;
 }
