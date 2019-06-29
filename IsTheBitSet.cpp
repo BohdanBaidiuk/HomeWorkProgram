@@ -1,36 +1,37 @@
 #include <iostream>
+#include <limits>
 
 int main() {
 
-	uint32_t number;
-	uint32_t numMax = 0b1111'1111'1111'1111'1111'1111'1111'1111;
-	uint32_t numMin = 0b0000'0000'0000'0000'0000'0000'0000'0001;
-	uint32_t bitOne = numMin;
-	unsigned short bit;
-	std::cout << "Enter the number = ";
-	std::cin >> number;
-	if (number>= numMin && number<= numMax) {
-		short bitMax = 32;
-		short bitMin = 1;
-		std::cout << "Enter the bit = ";
+  unsigned long long number;
+  const unsigned long NUMMAX = std::numeric_limits<unsigned long>::max();
+  const unsigned long NUMMIN = 1;
+  unsigned long bitOne = NUMMIN;
+  std::cout <<"Program Is the bit set"<<
+  "Enter the number from"<< NUMMIN <<" to "<< NUMMAX<<"\n";
+  std::cin >> number;
+  if (number >= NUMMIN && number <= NUMMAX) {
+    const short BITMAX = 32;
+    const short BITMIN = 1;
+    std::cout << "Enter the bit from" << BITMIN << " to " << BITMAX << "\n";
+    unsigned short bit;
+    std::cin >> bit;
+    if (bit >= BITMIN && bit <= BITMAX) {
+      bitOne <<= (bit - 1);
+      if ((number & bitOne) == bitOne) {
+        std::cout << "yes\n";
+      }
+      else {
+        std::cout << "no\n";
+      }
+    }
+    else {
+      std::cout << "Bit should be from "<< BITMIN <<" to "<< BITMAX;
+    }
+  }
+  else {
+    std::cout << "Wery long number or negative number or number = 0";
+  }
 
-		std::cin >> bit;
-		
-		if (bit >= bitMin && bit <= bitMax) {
-			bitOne <<= (bit - 1);
-			if ((number & bitOne) == bitOne) {
-				std::cout << "yes\n";
-			}
-			else {
-				std::cout << "no\n";
-			}
-		}
-		else {
-			std::cout << "Eror";
-		}
-	}
-	else {
-		std::cout << "Wery long number";
-	}
 	return 0;
 }
