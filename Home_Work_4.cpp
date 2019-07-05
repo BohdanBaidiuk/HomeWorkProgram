@@ -1,53 +1,87 @@
 #include <iostream>
 
-void FindDiget(char *arg_symbol,char *arg_diget, int arg_length) {
-  bool dig_check = false;
-  int count = 0;
-  for (int i = 0; i < arg_length; i++){
-    if (arg_symbol[i] >= '0' && arg_symbol[i] <= '9'){
-      arg_diget[count++] = arg_symbol[i];
-      dig_check = true;
+void FindDiget(char *arg_symbol, int arg_length) {
+  if (nullptr != arg_symbol) {
+    size_t count = 0;
+    for (size_t i = 0; i < arg_length; ++i) {
+      if (arg_symbol[i] >= '0' && arg_symbol[i] <= '9'){
+        ++count;
+        arg_symbol[i];
+      }
     }
-  }
-  if (dig_check){
-    arg_diget[count] = 0;
-    std::cout << "Is Dig = " << arg_diget <<"\n";
-  }
-  else
-    std::cout << "No digits in string \n";	
-  }
-
-void Tolower(char *arg_symbol, int arg_length) {
-  for (int i = 0; i <= arg_length; i++) {
-    if (arg_symbol[i] >= 'A' && arg_symbol[i] <= 'Z') {
-      const unsigned short MAGIK_NUM = 32;
-      int temp = arg_symbol[i] + MAGIK_NUM;
-      std::cout << (char)temp;
+    if (count > 0){
+      std::cout << "Is Dig = ";
+      for (size_t i = 0; i < arg_length; ++i) {
+        if (arg_symbol[i] >= '0' && arg_symbol[i] <= '9') {
+          std::cout<<arg_symbol[i];
+        }
+      }
     }
     else {
-      std::cout << arg_symbol[i];
+      std::cout << "No digits in string \n";
+    }
+  }
+  else {
+    std::cout << "Your symbol = 0 \n";
+  }
+}
+
+void Tolower(char *arg_symbol, int arg_length) {
+if (nullptr != arg_symbol) {
+  if (NULL != arg_length) {	
+	
+    for (size_t i = 0; i <= arg_length; ++i) {
+      if (arg_symbol[i] >= 'A' && arg_symbol[i] <= 'Z') {
+        const unsigned short MAGIK_NUM = 32;
+        size_t temp = arg_symbol[i] + MAGIK_NUM;
+        std::cout << (char)temp;
+      }
+      else {
+        std::cout << arg_symbol[i];
+      }
     }
   }	
 }
 
-void ToUpper(char *arg_symbol,int arg_length) {
-  for (int i = 0 ; i <= arg_length; i++) {
-    if (arg_symbol[i] >= 'a' && arg_symbol[i] <= 'z') {
+void ToUpper(char *arg_symbol,int arg_length){
+  if (nullptr != arg_symbol) {
+    if (NULL != arg_length) {
       const unsigned short MAGIK_NUM = 32;
-      int temp = arg_symbol[i] - MAGIK_NUM;
-      std::cout << (char)temp;;
+      for (size_t i = 0; i <= arg_length; ++i) {
+        if (arg_symbol[i] >= 'a' && arg_symbol[i] <= 'z') {
+          size_t temp = arg_symbol[i] - MAGIK_NUM;
+          std::cout << (char)temp;
+        }
+        else {
+          std::cout << arg_symbol[i];
+        }
+      }
     }
     else {
-      std::cout<<arg_symbol[i];
+      std::cout << "Your length string = 0 \n";
     }
+  }
+  else {
+    std::cout << "Your symbol = 0 \n";
   }
 }
 
 void ReversString(char *arg_str,int arg_length) {
-  for (int i = 0, j = arg_length - 1; i < j; i++, j--) {
-    int temp = arg_str[i];
-    arg_str[i] = arg_str[j];
-    arg_str[j] = temp;
+  if (nullptr != arg_str) {
+    if (NULL != arg_length) {
+      for (size_t i = 0, j = arg_length - 1; i < j; ++i, --j) {
+        size_t temp = arg_str[i];
+        arg_str[i] = arg_str[j];
+        arg_str[j] = temp;
+      }
+    std::cout << arg_str << std::endl;
+    }
+    else {
+      std::cout << "Your length string = 0 \n";
+    }
+  }
+  else {
+    std::cout << "Your symbol = 0 \n";
   }
 }
 
@@ -65,7 +99,7 @@ int main() {
   "-Upper case conversion \n" <<
   "-Lower case conversion \n" <<
   "-Revers for string \n";
-  const unsigned SIZE = 100;
+  const unsigned SIZE = 255;
   char symbol[SIZE];
   char arrDiget[SIZE];
   std::cout << "Enter STRING = ";
@@ -91,7 +125,6 @@ int main() {
         break;
       case REVERS:
         ReversString(symbol, length);
-        std::cout << symbol;
         break;
       default:
         std::cout << "UNDEFINED CHOICE";
