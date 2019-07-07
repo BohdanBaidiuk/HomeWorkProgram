@@ -1,38 +1,36 @@
 #include <iostream>
 
 void FindDiget(char *arg_symbol, int arg_length) {
-  if (nullptr != arg_symbol) {
-    size_t count = 0;
-    for (size_t i = 0; i < arg_length; ++i) {
-      if (arg_symbol[i] >= '0' && arg_symbol[i] <= '9'){
-        ++count;
-        arg_symbol[i];
-      }
-    }
-    if (count > 0){
-      std::cout << "Is Dig = ";
-      for (size_t i = 0; i < arg_length; ++i) {
-        if (arg_symbol[i] >= '0' && arg_symbol[i] <= '9') {
-          std::cout<<arg_symbol[i];
-        }
-      }
-    }
-    else {
-      std::cout << "No digits in string \n";
-    }
-  }
-  else {
-    std::cout << "Your symbol = 0 \n";
-  }
+ if (nullptr != arg_symbol) {
+    return;
+ }
+ bool is_digit_present = false;
+ for (size_t i = 0; i < arg_length; ++i) {
+   if (arg_symbol[i] >= '0' && arg_symbol[i] <= '9') {
+     is_digit_present = true;
+     break;
+   }
+   if (is_digit_present) {
+   std::cout << "Is Digit = ";
+   for (size_t i = 0; i < arg_length; ++i) {
+     auto ch = arg_symbol[i];
+     if (ch >= '0' && ch <= '9') {
+       std::cout << ch;
+     }
+   }
+ }
+ else {
+   std::cout << "No digits in string \n";
+ }
 }
 
 void Tolower(char *arg_symbol, int arg_length) {
 if (nullptr != arg_symbol) {
-  if (NULL != arg_length) {	
-	
+  return;
+}
+    const unsigned short MAGIK_NUM = 32;
     for (size_t i = 0; i <= arg_length; ++i) {
       if (arg_symbol[i] >= 'A' && arg_symbol[i] <= 'Z') {
-        const unsigned short MAGIK_NUM = 32;
         size_t temp = arg_symbol[i] + MAGIK_NUM;
         std::cout << (char)temp;
       }
@@ -40,12 +38,13 @@ if (nullptr != arg_symbol) {
         std::cout << arg_symbol[i];
       }
     }
-  }	
+  	
 }
 
 void ToUpper(char *arg_symbol,int arg_length){
-  if (nullptr != arg_symbol) {
-    if (NULL != arg_length) {
+ if (nullptr != arg_symbol) {
+   return;
+ }
       const unsigned short MAGIK_NUM = 32;
       for (size_t i = 0; i <= arg_length; ++i) {
         if (arg_symbol[i] >= 'a' && arg_symbol[i] <= 'z') {
@@ -56,19 +55,12 @@ void ToUpper(char *arg_symbol,int arg_length){
           std::cout << arg_symbol[i];
         }
       }
-    }
-    else {
-      std::cout << "Your length string = 0 \n";
-    }
-  }
-  else {
-    std::cout << "Your symbol = 0 \n";
-  }
 }
 
 void ReversString(char *arg_str,int arg_length) {
-  if (nullptr != arg_str) {
-    if (NULL != arg_length) {
+ if (arg_str == nullptr || arg_length == 0) {
+    return;
+ }
       for (size_t i = 0, j = arg_length - 1; i < j; ++i, --j) {
         size_t temp = arg_str[i];
         arg_str[i] = arg_str[j];
@@ -76,13 +68,6 @@ void ReversString(char *arg_str,int arg_length) {
       }
     std::cout << arg_str << std::endl;
     }
-    else {
-      std::cout << "Your length string = 0 \n";
-    }
-  }
-  else {
-    std::cout << "Your symbol = 0 \n";
-  }
 }
 
 enum ChoiseFunc {
