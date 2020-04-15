@@ -10,7 +10,7 @@ namespace {
 const size_t VectorSize{100};
 const size_t Min{1};
 const size_t Max{100};
-} // namespace
+} 
 
 void generate_vector(std::vector<int> &v) {
   std::random_device rd;
